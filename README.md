@@ -1,4 +1,4 @@
-# django
+# <unnamed project>
 
 ## Getting started
 
@@ -19,12 +19,18 @@ Webpack
 
 ## Directory structurer
 
+### `env/`
+
+This is the virtual environment directory for the python aspect of this project.
+It is not tracked and unique to each computer. Its is also not movable. There
+is no reason to interact with this directory directly.
+
 ### `backend/`
 
 This directory hold the Django projecy. `manage.py` is set to be part of your
 path when you activate the development environment and you do not have to worry
-about where is being executed from. Also, **DO NOT** pre-pend `manage.py` with
-`python/3` or `./`, this will break stuff.
+about where it is being executed from. Also, **DO NOT** pre-pend `manage.py`
+with `python/3` or `./`, this will break stuff.
 
 All the Django apps and config are also kept in this directory.
 
@@ -36,14 +42,15 @@ This is where the Vue.JS project and any front end or static resources are kept.
 
 The `package.json` file is also here.
 
-When the development environment is activated, the `/frontend/node_modules/.bin/`
-directory is pre-pended to you path.
+When the development environment is activated, the
+`/frontend/node_modules/.bin/` directory is pre-pended to your path.
 
 ### `scripts/`
 
-This directory holds scripts for helping with the development process. When the
-development environment is activated, the `scripts` directory is pre-pended to
-you path.
+This directory holds scripts for helping with the development process.
+
+When the development environment is activated, the `scripts` directory is
+pre-pended to your path.
 
 ## Updating the database
 
@@ -54,7 +61,7 @@ the app and they need to commited. To migrate the data base run,
 
 ## Plugins
 
-### DRF
+### Django Rest framwork
 
 We are using the Django Rest framwork to set up the RESR API:
 
