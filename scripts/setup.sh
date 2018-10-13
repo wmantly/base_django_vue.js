@@ -12,7 +12,7 @@ printf "\nActivating virtual environment...\n"
 source env/bin/activate
 
 printf "\n\nInstalling python packages..\n\n"
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
 
 if [ -d ./frontend ]; then
 	printf "\n\nInstalling Node packages...\n\n"
