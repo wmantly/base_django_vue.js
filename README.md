@@ -19,7 +19,7 @@ Webpack
 
 ## Directory structurer
 
-### `/backend/`
+### `backend/`
 
 This directory hold the Django projecy. `manage.py` is set to be part of your
 path when you activate the development environment and you do not have to worry
@@ -30,7 +30,7 @@ All the Django apps and config are also kept in this directory.
 
 The `requirements.txt` file is also kept here.
 
-### `frontend`
+### `frontend/`
 
 This is where the Vue.JS project and any front end or static resources are kept.
 
@@ -39,7 +39,7 @@ The `package.json` file is also here.
 When the development environment is activated, the `/frontend/node_modules/.bin/`
 directory is pre-pended to you path.
 
-### `scripts`
+### `scripts/`
 
 This directory holds scripts for helping with the development process. When the
 development environment is activated, the `scripts` directory is pre-pended to
