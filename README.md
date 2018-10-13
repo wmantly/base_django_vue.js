@@ -1,4 +1,4 @@
-# <unnamed project>
+# {unnamed project}
 
 ## Getting started
 
