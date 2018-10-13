@@ -1,53 +1,46 @@
 #!/usr/bin/env node
-const {spawn} = require( 'child_process' );
-const fs = require( 'fs' );
+const {spawn} = require('child_process');
 
-function startDango() {
-	/*
-		start django
-	*/
-	var django = spawn( 'python3', ['manage.py', 'runserver', '127.0.0.1:8000'] );
+function startDango(){
+	let child = spawn('manage.py', ['runserver']);
 
-	console.log( 'django started on port 8000' );
+	console.log('django started on port 8000');
 
-	django.stdout.on( 'data', function( data ){
-	 	console.log( data.toString() );
-	} );
+	child.stdout.on('data', function(data){
+	 	console.log(data.toString());
+	});
 
-	django.stderr.on( 'data', function( data ){
-	 	console.error( data.toString() );
-	} );
+	child.stderr.on('data', function(data){
+	 	console.error(data.toString());
+	});
 
-	django.on( 'exit', function( code ){
-		console.error( 'child process exited with code ' + code.toString() );
-		console.error( 'Django failed to start, killing app' );
-		process.exit();
-	} );
+	child.on('exit', function(code){
+		console.error('Django failed, killing dev server');
+		console.error('Django exited with code: ' + code.toString());
+		process.exit(1);
+	});
 };
 
-function startWebPack( app ) {
-	/*
-		start django
-	*/
-	var webpack = spawn( 'webpack-dev-server', ['--open', '--hot'], { /*env: {
-		'NODE_ENV': 'development',
-	},*/ cwd: './frontend/'});
+function startWebPack(){
+	let child = spawn('webpack-dev-server', ['--open', '--hot'], {
+		cwd: './frontend/'
+	});
 
-	console.log( 'webpack started on port 3000' );
+	console.log('webpack started on port 8080');
 
-	webpack.stdout.on( 'data', function( data ){
-	 	console.log( data.toString() );
-	} );
+	child.stdout.on('data', function(data){
+	 	console.log(data.toString());
+	});
 
-	webpack.stderr.on( 'data', function( data ){
-	 	console.error( data.toString() );
-	} );
+	child.stderr.on('data', function(data){
+	 	console.error(data.toString());
+	});
 
-	webpack.on( 'exit', function( code ){
-		console.error( 'child process exited with code ' + code.toString() );
-		console.error( 'webpack failed to start, killing app' );
-		process.exit();
-	} );
+	child.on('exit', function(code){
+		console.error('Webpack failed, killing dev server');
+		console.error('Webpack exited with code: ' + code.toString());
+		process.exit(1);
+	});
 };
 
 startDango();
