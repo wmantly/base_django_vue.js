@@ -22,4 +22,7 @@ if [ -d ./frontend ]; then
 	export PATH=`pwd`/frontend/node_modules/.bin/:$PATH
 fi
 
+printf "\nAdding scripts folder to your path\n\n"
+export PATH=`pwd`/scripts/:$PATH
+
 printf "\n\nSetting up environment alias\n"
