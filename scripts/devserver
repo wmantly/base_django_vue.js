@@ -1,8 +1,14 @@
 #!/usr/bin/env node
+
 const {spawn} = require('child_process');
+const BASE_DIR = __dirname+'/..'
+
+console.log(BASE_DIR)
 
 function startDango(){
-	let child = spawn('manage.py', ['runserver']);
+	let child = spawn('manage.py', ['runserver'],{
+		cwd: BASE_DIR+'/backend/',
+	});
 
 	console.log('django started on port 8000');
 
@@ -22,8 +28,8 @@ function startDango(){
 };
 
 function startWebPack(){
-	let child = spawn('webpack-dev-server', ['--open', '--hot'], {
-		cwd: './frontend/'
+	let child = spawn('webpack-dev-server', ['--hot'], {
+		cwd: BASE_DIR+'/frontend/',
 	});
 
 	console.log('webpack started on port 8080');

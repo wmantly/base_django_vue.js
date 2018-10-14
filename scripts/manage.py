@@ -1,4 +1,5 @@
 #!/bin/bash
 
-cd ./backend
-python3 manage.py $@
+BASE_DIR="$(dirname "$0")/.."
+cd "$BASE_DIR/backend/"
+python3 "manage.py" $@
