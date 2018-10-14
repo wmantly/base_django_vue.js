@@ -45,15 +45,15 @@ export PATH="$BASE_DIR/scripts/:$PATH"
 if [ ! -f "$BASE_DIR/backend/project/settings/local_settings.py" ]; then
 	echo -e "$IRed"
 	echo `python -c "print('!'*80)"`
-    echo "DONT FORGET TO SET UP YOUR local_settings.py in"
-    echo "backend/project/settings/local_settings.py"
-    echo "There is a template in"
-    echo "backend/project/settings/local_settings.py.template"
-    echo "Here is a randomly generated secret key you can use:"
-    echo `python -c 'from django.core.management import utils; print(utils.get_random_secret_key())'`
-    echo "And this command to copy the template"
-    echo "cp backend/project/settings/local_settings.py.template backend/project/settings/local_settings.py"
-    echo -e "$Color_Off"
+	echo "DONT FORGET TO SET UP YOUR local_settings.py in"
+	echo "backend/project/settings/local_settings.py"
+	echo "There is a template in"
+	echo "backend/project/settings/local_settings.py.template"
+	echo "Here is a randomly generated secret key you can use:"
+	echo `python -c 'from django.core.management import utils; print(utils.get_random_secret_key())'`
+	echo "And this command to copy the template"
+	echo "cp backend/project/settings/local_settings.py.template backend/project/settings/local_settings.py"
+	echo -e "$Color_Off"
 fi
 
 echo "Done"
