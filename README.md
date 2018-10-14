@@ -59,6 +59,16 @@ When a model is changed the databse needs to be migrated. To do this run
 the app and they need to commited. To migrate the data base run,
 `manage.py migrate`.
 
+## API documents
+
+This project uses self documenting tools for API references. They can be found
+at while they server is running:
+
+http(s)://{site URL}/api/swagger/
+
+http(s)://{site URL}/api/redoc/
+
+
 ## Plugins
 
 ### Django Rest framwork
@@ -72,3 +82,10 @@ https://www.django-rest-framework.org/
 User registration REST API, based on django-rest-framework.
 
 https://github.com/apragacz/django-rest-registration
+
+### drf-yasg - Yet another Swagger generator
+
+Generate real Swagger/OpenAPI 2.0 specifications from a Django Rest Framework
+API.
+
+https://github.com/axnsan12/drf-yasg/
