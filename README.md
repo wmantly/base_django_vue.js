@@ -64,9 +64,9 @@ the app and they need to commited. To migrate the data base run,
 This project uses self documenting tools for API references. They can be found
 at while they server is running:
 
-http(s)://<site URL>/api/swagger/
+http(s)://{site URL}/api/swagger/
 
-http(s)://<site URL>/api/redoc/
+http(s)://{site URL}/api/redoc/
 
 
 ## Plugins
