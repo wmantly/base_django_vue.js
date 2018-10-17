@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BASE_DIR="$(dirname "$0")/.."
+BASE_DIR=$(dirname "$0")"/.."
 
 Color_Off='\e[0m'       # Text Reset
 
