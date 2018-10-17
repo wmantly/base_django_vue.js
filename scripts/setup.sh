@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-BASE_DIR=$(dirname "$0")"/.."
-
 Color_Off='\e[0m'       # Text Reset
 
 # Regular Colors
@@ -18,31 +16,31 @@ BRed='\e[1;31m'
 On_Red='\e[41m'
 IRed='\e[0;91m'
 
-if [ ! -d $BASE_DIR/env ]; then
+if [ ! -d ./env ]; then
 	printf "Virtual environment not found, creating it\n"
 	sleep 1
-	virtualenv "$BASE_DIR/env" -p python3
+	virtualenv "./env" -p python3
 fi
 
 printf "Activating virtual environment...\n"
-source "$BASE_DIR/env/bin/activate"
+source "./env/bin/activate"
 
 printf "\nInstalling python packages..\n"
-pip install -r "$BASE_DIR/backend/requirements.txt"
+pip install -r "./backend/requirements.txt"
 
-if [ -d $BASE_DIR/frontend ]; then
+if [ -d ./frontend ]; then
 	printf "\nInstalling Node packages...\n"
-	npm --prefix $BASE_DIR/frontend/ install $BASE_DIR/frontend/
+	npm --prefix ./frontend/ install ./frontend/
 	
 	printf "Adding nodeJS modules bin to your path\n"
-	export PATH="$BASE_DIR/frontend/node_modules/.bin/:$PATH"
+	export PATH="`pwd`/frontend/node_modules/.bin/:$PATH"
 	export NODE_ENV="development"
 fi
 
 printf "Adding scripts folder to your path\n"
-export PATH="$BASE_DIR/scripts/:$PATH"
+export PATH="`pwd`/scripts/:$PATH"
 
-if [ ! -f "$BASE_DIR/backend/project/settings/local_settings.py" ]; then
+if [ ! -f "./backend/project/settings/local_settings.py" ]; then
 	echo -e "$IRed"
 	echo `python -c "print('!'*80)"`
 	echo "DONT FORGET TO SET UP YOUR local_settings.py in"
