@@ -9,7 +9,7 @@ production.
 
 * Clone
 * The setup script will set everything up and install all the dependencies
-`source setup`. You should run this when ever you open a terminal to
+`source scripts/setup.sh`. **THIS MUST BE EXECUTED FROM THE ROOT OF THE PROJECT** You should run this when ever you open a terminal to
 work on this project.
 
 ## Running the project
