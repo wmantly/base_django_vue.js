@@ -7,7 +7,7 @@ console.log(BASE_DIR)
 
 function startDango(){
 	let child = spawn('manage.py', ['runserver'],{
-		cwd: BASE_DIR+'/backend/',
+		cwd: BASE_DIR+'/backend',
 	});
 
 	console.log('django started on port 8000');
@@ -29,7 +29,7 @@ function startDango(){
 
 function startWebPack(){
 	let child = spawn('webpack-dev-server', ['--hot'], {
-		cwd: BASE_DIR+'/frontend/',
+		cwd: BASE_DIR+'/frontend',
 	});
 
 	console.log('webpack started on port 8080');
