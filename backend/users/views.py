@@ -4,5 +4,7 @@ from .serializers import TeamSerializer
 
 
 class TeamSet(viewsets.ModelViewSet):
-    queryset = Team.objects.all()
-    serializer_class = TeamSerializer
+	# def perform_create(self, serializer):
+	# 	serializer.save(created_by=self.request.user)
+	queryset = Team.objects.all()
+	serializer_class = TeamSerializer

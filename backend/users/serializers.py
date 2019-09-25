@@ -11,4 +11,4 @@ from rest_framework import serializers
 class TeamSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Team
-        fields = ('name', 'description',)
+        fields = ('name', 'description', 'created_by')

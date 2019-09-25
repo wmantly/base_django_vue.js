@@ -6,7 +6,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 router = routers.DefaultRouter()
-router.register(r'users', views.TeamSet)
+router.register(r'teams', views.TeamSet)
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -23,10 +23,11 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    url(r'api/^', include(router.urls)),
-    url(r'api/accounts/', include('rest_registration.api.urls')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    url(r'^api/swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    url(r'^api/redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    url(r'^api/', include((router.urls, 'app_name'), namespace='instance_name')),
+    url(r'^api/accounts/', include('rest_registration.api.urls')),
+    url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
+
